@@ -28,7 +28,7 @@ from requests.utils import (
 )
 from bs4 import BeautifulSoup
 
-from portmanteaur import __author_email__, __name__, __version__
+from portmanteaur import __name__, __version__
 
 BASE_URL = 'https://www.portmanteaur.com/'
 RESULTS_TRANSLATION = str.maketrans({'\n': '', ' ': ''})
@@ -37,7 +37,6 @@ default_user_agent = f'{_default_user_agent()} {__name__}/{__version__}'
 default_headers = {
     **_default_headers(),
     'User-Agent': default_user_agent,
-    'From': __author_email__
 }
 
 
