@@ -1,7 +1,15 @@
 """portmanteau - Generate portmanteau for name generation"""
 
 __all__ = [
-    'get_version',
+    '__author__',
+    '__author_email__',
+    '__license__',
+    '__version__',
+    'default_headers',
+    'default_user_agent',
+    'get_word',
+    'get_words',
+    'get_version'
 ]
 
 from portmanteaur.__version__ import __author__
@@ -16,5 +24,5 @@ from portmanteaur._portmanteaur import get_word
 from portmanteaur._portmanteaur import get_words
 
 
-def get_version() -> tuple[int]:
+def get_version() -> tuple[int, int, int]:
     return __VERSION

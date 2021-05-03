@@ -18,7 +18,7 @@ import random
 from typing import Any
 
 try:
-    import html5lib
+    import html5lib as _
 except ImportError:
     raise ImportError('html5lib is required')
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+from typing import Any
 from setuptools import find_packages, setup
 
 PACKAGE = 'portmanteaur'
@@ -10,10 +11,10 @@ REQUIRED = [
     'html5lib',
     'requests',
 ]
-EXTRAS = {}
+EXTRAS: dict[str, list[str]] = {}
 
 here = os.path.abspath(os.path.dirname(__file__))
-about = {}
+about: dict[str, Any] = {}
 with open(os.path.join(here, PACKAGE.lower(), '__version__.py')) as fp:
     exec(fp.read(), about)
 
