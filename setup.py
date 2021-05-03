@@ -37,6 +37,9 @@ setup(
     packages=find_packages(
         exclude=["tests", "*.tests", "*.tests.*", "tests.*"]
     ),
+    entry_points={
+        'console_scripts': ['portmanteaur=portmanteaur.__main__:main']
+    },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,

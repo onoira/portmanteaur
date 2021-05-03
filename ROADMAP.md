@@ -1,3 +1,0 @@
-# Roadmap
-
-- [ ] Add CLI
