@@ -15,6 +15,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/
 
 import random
+from typing import Any
 
 try:
     import html5lib
@@ -22,25 +23,20 @@ except ImportError:
     raise ImportError('html5lib is required')
 
 from requests import request
-from requests.utils import (
-    default_headers as _default_headers,
-    default_user_agent as _default_user_agent
-)
 from bs4 import BeautifulSoup
 
 from portmanteaur import __name__, __version__
 
+_TH = dict[str, Any]
+
 BASE_URL = 'https://www.portmanteaur.com/'
 RESULTS_TRANSLATION = str.maketrans({'\n': '', ' ': ''})
 
-default_user_agent = f'{_default_user_agent()} {__name__}/{__version__}'
-default_headers = {
-    **_default_headers(),
-    'User-Agent': default_user_agent,
-}
+default_user_agent = f'{__name__}/{__version__}'
+default_headers = {'User-Agent': default_user_agent}
 
 
-def get_words(words: list[str], headers: dict = default_headers) -> list[str]:
+def get_words(words: list[str], headers: _TH = default_headers) -> list[str]:
     """Return all unique words from `BASE_URL`"""
 
     response = request(
@@ -60,7 +56,7 @@ def get_words(words: list[str], headers: dict = default_headers) -> list[str]:
     return list(set(words))
 
 
-def get_word(words: list[str], headers: dict = default_headers) -> str:
+def get_word(words: list[str], headers: _TH = default_headers) -> str:
     """Select a random word from `BASE_URL`"""
     words = get_words(words, headers)
     return random.choice(words)
